@@ -11,44 +11,98 @@ namespace console_type_system
         static void Main(string[] args)
         {
             //start
-            Console.WriteLine("Console App");
+
+            //Console.WriteLine("Console App");
 
             //A
 
+            //int monthlyWage = 1234;
+            //double ratePerHour = 12.34;
+            //int numberOfHoursWorked = 165;
+            //int bonus = 1000;
+
+            //double currentMonthWage = ratePerHour * numberOfHoursWorked + bonus;
+
+            //ratePerHour += 3;
+            //Console.WriteLine(ratePerHour);
+
+            //if (currentMonthWage > 2000)
+            //{
+            //    Console.WriteLine("Top paid employee");
+            //}
+
+            //Console.WriteLine(currentMonthWage);
+
             //B
 
+            //char userSelection = 'a';
+            //char upperVersion = char.ToUpper(userSelection);
+            //bool isDigit = char.IsDigit(userSelection);
+            //bool isLetter = char.IsLetter(userSelection);
+
             //C
+
+            //DateTime hireDate = new DateTime(2012, 3, 28, 14, 30, 0);
+            //DateTime invalidDate = new DateTime(2021, 15, 11);
+
+            //Console.WriteLine(hireDate);
+
+            //DateTime startDate = hireDate.AddDays(15);
+
+            //Console.WriteLine(startDate);
+
+            //D
+
+            //var currentDate = DateTime.Now;
+            //bool areWeInDst = currentDate.IsDaylightSavingTime();
+
+            //DateTime startHour = DateTime.Now;
+            //TimeSpan workTime = new TimeSpan(8, 35, 0);
+            //DateTime endHour = startHour.Add(workTime);
+
+            //Console.WriteLine(startHour);
+            //Console.WriteLine(endHour);
+
+            //Console.WriteLine(startHour.ToLongDateString());
+            //Console.WriteLine(endHour.ToShortTimeString());
+
+            //E
+
+
 
 
             //Q
 
-            Manager mary = new Manager(748, "Mary", "Jones", "mary@snowball.be", new DateTime(1965, 1, 16), 30); //correct argements order?
+            //Manager mary = new Manager(748, "Mary", "Jones", "mary@snowball.be", new DateTime(1965, 1, 16), 30); //correct argements order?
 
-            StoreManager bethany = new StoreManager(55156, "Bethany", "Smith", "bethany@snowball.be", new DateTime(1979, 1, 16), 25);
-            StoreManager kevin = new StoreManager(81131, "Kevin", "Marks", "kevin@snowball.be", new DateTime(1953, 12, 12), 10);
-            StoreManager kate = new StoreManager(100, "Kate", "Greggs", "kate@snowball.be", new DateTime(1993, 8, 8), 10);
+            //StoreManager bethany = new StoreManager(55156, "Bethany", "Smith", "bethany@snowball.be", new DateTime(1979, 1, 16), 25);
+            //StoreManager kevin = new StoreManager(81131, "Kevin", "Marks", "kevin@snowball.be", new DateTime(1953, 12, 12), 10);
+            //StoreManager kate = new StoreManager(100, "Kate", "Greggs", "kate@snowball.be", new DateTime(1993, 8, 8), 10);
 
             //JuniorResearcher bobJunior = new JuniorResearcher(11231, "Bob", "Spencer", "bob@snowball.be", new DateTime(1988, 1, 23), 17);
 
             //R
+
             //mary.AttendManagementMeeting();
 
             //T
-            List<IEmployee> employees = new List<IEmployee>();
-            employees.Add(mary);
-            employees.Add(bethany);
-            employees.Add(kevin);
-            employees.Add(kate);
-            //employees.Add(bobJunior);
 
-            employees.Sort();
+            //List<IEmployee> employees = new List<IEmployee>();
+            //employees.Add(mary);
+            //employees.Add(bethany);
+            //employees.Add(kevin);
+            //employees.Add(kate);
+            ////employees.Add(bobJunior);
 
-            foreach (var employee in employees)
-            {
-                employee.DisplayEmployeeDetails(); 
-            }
+            //employees.Sort();
+
+            //foreach (var employee in employees)
+            //{
+            //    employee.DisplayEmployeeDetails(); 
+            //}
 
             //end
+
             //Console.ReadLine();
             Console.ReadKey();
         }
@@ -124,7 +178,7 @@ namespace console_type_system.departments
 
         public DateTime BirthDay
         {
-            get { return = birthDay; } set { birthDay = value; }
+            get { return birthDay; } set { birthDay = value; }
         }
 
         public string Email
@@ -140,7 +194,7 @@ namespace console_type_system.departments
 
         public double Wage
         {
-            get { return = wage; } set { wage = value; }
+            get { return wage; } set { wage = value; }
         }
 
         private double? HourlyRate
@@ -196,6 +250,8 @@ namespace console_type_system.departments
             Console.WriteLine($"The wage for {NumberOfHoursWorked} hours of work is {Wage}.");
 
             NumberOfHoursWorked = 0;
+
+            return Wage;
         }
 
         public void GiveCompliment()

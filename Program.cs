@@ -8,8 +8,9 @@ namespace console_type_system
 {
     class Program
     {
-        //static void Main(string[] args)
-        //{
+        static void Main(string[] args)
+        {
+            Console.WriteLine(":-)");
             //part I
 
             //A
@@ -66,113 +67,113 @@ namespace console_type_system
 
             //part II
 
-        private static List<Employee> employees = new List<Employee>();
-        static void Main(string[] args)
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("***********************************");
-            Console.WriteLine("************Employee**App**********");
-            Console.WriteLine("***********************************");
-            Console.ForegroundColor = ConsoleColor.White;
+            //private static List<Employee> employees = new List<Employee>();
+            //static void Main(string[] args)
+            //{
+            //    Console.ForegroundColor = ConsoleColor.Green;
+            //    Console.WriteLine("***********************************");
+            //    Console.WriteLine("************Employee**App**********");
+            //    Console.WriteLine("***********************************");
+            //    Console.ForegroundColor = ConsoleColor.White;
 
-            string userSelection;
+            //    string userSelection;
 
-            do
-            {
-                Console.ForegroundColor = ConsoleColor.Blue;
+            //    do
+            //    {
+            //        Console.ForegroundColor = ConsoleColor.Blue;
 
-                Console.WriteLine("********************");
-                Console.WriteLine("* Select an action *");
-                Console.WriteLine("********************");
-                Console.ForegroundColor = ConsoleColor.White;
+            //        Console.WriteLine("********************");
+            //        Console.WriteLine("* Select an action *");
+            //        Console.WriteLine("********************");
+            //        Console.ForegroundColor = ConsoleColor.White;
 
-                Console.WriteLine("1: Register employee");
-                Console.WriteLine("2: Register work hours for employee");
-                Console.WriteLine("3: Pay employee");
-                Console.WriteLine("9: Quit application");
+            //        Console.WriteLine("1: Register employee");
+            //        Console.WriteLine("2: Register work hours for employee");
+            //        Console.WriteLine("3: Pay employee");
+            //        Console.WriteLine("9: Quit application");
 
-                userSelection = Console.ReadLine();
+            //        userSelection = Console.ReadLine();
 
-                switch (userSelection)
-                {
-                    case "1":
-                        RegisterEmployee();
-                        break;
-                    case "2":
-                        RegisterWork();
-                        break;
-                    case "3":
-                        PayEmployee();
-                        break;
-                    case "9": break;
-                    default:
-                        Console.WriteLine("Invalid selection. Please try again.");
-                        break;
-                }
-            }
-            while (userSelection != "9");
+            //        switch (userSelection)
+            //        {
+            //            case "1":
+            //                RegisterEmployee();
+            //                break;
+            //            case "2":
+            //                RegisterWork();
+            //                break;
+            //            case "3":
+            //                PayEmployee();
+            //                break;
+            //            case "9": break;
+            //            default:
+            //                Console.WriteLine("Invalid selection. Please try again.");
+            //                break;
+            //        }
+            //    }
+            //    while (userSelection != "9");
 
-            Console.WriteLine("Thanks for using the application");
-            Console.Read();
+            //    Console.WriteLine("Thanks for using the application");
+            //    Console.Read();
 
-            static void RegisterEmployee() //static modifier is not permitted on a local function?
-            {
-                Console.WriteLine("Creating an employee");
+            //    static void RegisterEmployee() //static modifier is not permitted on a local function?
+            //    {
+            //        Console.WriteLine("Creating an employee");
 
-                Console.Write("Enter the first name: ");
-                string firstName = Console.ReadLine();
+            //        Console.Write("Enter the first name: ");
+            //        string firstName = Console.ReadLine();
 
-                Console.Write("Enter the last name: ");
-                string lastName = Console.ReadLine();
+            //        Console.Write("Enter the last name: ");
+            //        string lastName = Console.ReadLine();
 
-                Console.Write("Enter the hourly rate: ");
-                string hourlyRate = Console.ReadLine();
+            //        Console.Write("Enter the hourly rate: ");
+            //        string hourlyRate = Console.ReadLine();
 
-                double rate = double.Parse(hourlyRate); //assuming that input is in a correct format
+            //        double rate = double.Parse(hourlyRate); //assuming that input is in a correct format
 
-                Employee employee = new Employee(firstName, lastName, rate);
-                employees.Add(employee);
+            //        Employee employee = new Employee(firstName, lastName, rate);
+            //        employees.Add(employee);
 
-                Console.WriteLine("Employee created!\n\n");
+            //        Console.WriteLine("Employee created!\n\n");
 
-            }
+            //    }
 
-            static void RegisterWork()
-            {
-                Console.WriteLine("Select an employee");
+            //    static void RegisterWork()
+            //    {
+            //        Console.WriteLine("Select an employee");
 
-                for (int i = 1; i <= employees.Count; i++)
-                {
-                    Console.WriteLine($"{i}. {employees[i - 1].FirstName} {employees[i - 1].LastName}");
-                }
+            //        for (int i = 1; i <= employees.Count; i++)
+            //        {
+            //            Console.WriteLine($"{i}. {employees[i - 1].FirstName} {employees[i - 1].LastName}");
+            //        }
 
-                int selection = int.Parse(Console.ReadLine()); //assuming that that a valid ID is selected
+            //        int selection = int.Parse(Console.ReadLine()); //assuming that that a valid ID is selected
 
-                Console.Write("Enter the number of hours worked: ");
-                int hours = int.Parse(Console.ReadLine()); //assuming that that a valid amount is entered
+            //        Console.Write("Enter the number of hours worked: ");
+            //        int hours = int.Parse(Console.ReadLine()); //assuming that that a valid amount is entered
 
-                Employee selectedEmployee = employees[selection - 1];
-                int numberOfHoursWorked = selectedEmployee.PerformWork(hours);
-                Console.WriteLine($"{selectedEmployee.FirstName} {selectedEmployee.LastName} has now worked {numberOfHoursWorked} hours in total.\n\n");
-            }
+            //        Employee selectedEmployee = employees[selection - 1];
+            //        int numberOfHoursWorked = selectedEmployee.PerformWork(hours);
+            //        Console.WriteLine($"{selectedEmployee.FirstName} {selectedEmployee.LastName} has now worked {numberOfHoursWorked} hours in total.\n\n");
+            //    }
 
-            static void PayEmployee()
-            {
-                Console.WriteLine("Select an employee");
+            //    static void PayEmployee()
+            //    {
+            //        Console.WriteLine("Select an employee");
 
-                for (int i = 1; i <= employees.Count; i++)
-                {
-                    Console.WriteLine($"{i}. {employees[i - 1].FirstName} {employees[i - 1].LastName}");
-                }
+            //        for (int i = 1; i <= employees.Count; i++)
+            //        {
+            //            Console.WriteLine($"{i}. {employees[i - 1].FirstName} {employees[i - 1].LastName}");
+            //        }
 
-                int selection = int.Parse(Console.ReadLine()); //assuming that that a valid ID is selected
+            //        int selection = int.Parse(Console.ReadLine()); //assuming that that a valid ID is selected
 
-                Employee selectedEmployee = employees[selection - 1];
-                int hoursWorked;
-                double receivedWage = selectedEmployee.ReceiveWage(out hoursWorked);
+            //        Employee selectedEmployee = employees[selection - 1];
+            //        int hoursWorked;
+            //        double receivedWage = selectedEmployee.ReceiveWage(out hoursWorked);
 
-                Console.WriteLine($"{selectedEmployee.FirstName} {selectedEmployee.LastName} has received a wage of {receivedWage}. The hours worked is reset to {hoursWorked}.\n\n");
-            }
+            //        Console.WriteLine($"{selectedEmployee.FirstName} {selectedEmployee.LastName} has received a wage of {receivedWage}. The hours worked is reset to {hoursWorked}.\n\n");
+            //    }
 
             //part III
 
@@ -255,89 +256,90 @@ namespace console_type_system
 }
 
 
-//for part II
-namespace console_type_system
-{
-    public class Employee
-    {
-        private string firstName;
-        private string lastName;
+//class for part II
 
-        private int numberOfHoursWorked;
-        private double wage;
-        private double hourlyRate;
+//namespace console_type_system
+//{
+//    public class Employee
+//    {
+//        private string firstName;
+//        private string lastName;
 
-        public string FirstName
-        {
-            get { return firstName; }
-            set
-            {
-                firstName = value;
-            }
-        }
+//        private int numberOfHoursWorked;
+//        private double wage;
+//        private double hourlyRate;
 
-        public string LastName
-        {
-            get { return lastName; }
-            set
-            {
-                lastName = value;
-            }
-        }
+//        public string FirstName
+//        {
+//            get { return firstName; }
+//            set
+//            {
+//                firstName = value;
+//            }
+//        }
 
-        public double HourlyRate
-        {
-            get { return hourlyRate; }
-            set
-            {
-                hourlyRate = value;
-            }
-        }
+//        public string LastName
+//        {
+//            get { return lastName; }
+//            set
+//            {
+//                lastName = value;
+//            }
+//        }
 
-        public int NumberOfHoursWorked
-        {
-            get { return numberOfHoursWorked; }
-            set
-            {
-                numberOfHoursWorked = value;
-            }
-        }
+//        public double HourlyRate
+//        {
+//            get { return hourlyRate; }
+//            set
+//            {
+//                hourlyRate = value;
+//            }
+//        }
 
-        public double Wage
-        {
-            get { return wage; }
-            set
-            {
-                wage = value;
-            }
-        }
+//        public int NumberOfHoursWorked
+//        {
+//            get { return numberOfHoursWorked; }
+//            set
+//            {
+//                numberOfHoursWorked = value;
+//            }
+//        }
 
-        public Employee(string first, string last, double rate)
-        {
-            FirstName = first;
-            LastName = last;
-            HourlyRate = rate;
-        }
+//        public double Wage
+//        {
+//            get { return wage; }
+//            set
+//            {
+//                wage = value;
+//            }
+//        }
 
-        public int PerformWork(int hours)
-        {
-            NumberOfHoursWorked += hours;
-            return NumberOfHoursWorked;
-        }
+//        public Employee(string first, string last, double rate)
+//        {
+//            FirstName = first;
+//            LastName = last;
+//            HourlyRate = rate;
+//        }
 
-        public double ReceiveWage(out int hoursWorked)
-        {
-            Wage = NumberOfHoursWorked * HourlyRate;
+//        public int PerformWork(int hours)
+//        {
+//            NumberOfHoursWorked += hours;
+//            return NumberOfHoursWorked;
+//        }
 
-            Console.WriteLine($"The wage for {NumberOfHoursWorked} hours of work is {Wage}.");
+//        public double ReceiveWage(out int hoursWorked)
+//        {
+//            Wage = NumberOfHoursWorked * HourlyRate;
 
-            NumberOfHoursWorked = 0;
-            hoursWorked = NumberOfHoursWorked;
+//            Console.WriteLine($"The wage for {NumberOfHoursWorked} hours of work is {Wage}.");
 
-            return Wage;
-        }
-    }
-}
+//            NumberOfHoursWorked = 0;
+//            hoursWorked = NumberOfHoursWorked;
+
+//            return Wage;
+//        }
+//    }
+//}
 
 
 

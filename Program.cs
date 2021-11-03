@@ -8,11 +8,9 @@ namespace console_type_system
 {
     class Program
     {
-        static void Main(string[] args)
-        {
-            //start
-
-            //Console.WriteLine("Console App");
+        //static void Main(string[] args)
+        //{
+            //part I
 
             //A
 
@@ -66,12 +64,168 @@ namespace console_type_system
             //Console.WriteLine(startHour.ToLongDateString());
             //Console.WriteLine(endHour.ToShortTimeString());
 
-            //E
+            //part II
 
+        private static List<Employee> employees = new List<Employee>();
+        static void Main(string[] args)
+        {
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("***********************************");
+            Console.WriteLine("************Employee**App**********");
+            Console.WriteLine("***********************************");
+            Console.ForegroundColor = ConsoleColor.White;
 
+            string userSelection;
 
+            do
+            {
+                Console.ForegroundColor = ConsoleColor.Blue;
 
-            //Q
+                Console.WriteLine("********************");
+                Console.WriteLine("* Select an action *");
+                Console.WriteLine("********************");
+                Console.ForegroundColor = ConsoleColor.White;
+
+                Console.WriteLine("1: Register employee");
+                Console.WriteLine("2: Register work hours for employee");
+                Console.WriteLine("3: Pay employee");
+                Console.WriteLine("9: Quit application");
+
+                userSelection = Console.ReadLine();
+
+                switch (userSelection)
+                {
+                    case "1":
+                        RegisterEmployee();
+                        break;
+                    case "2":
+                        RegisterWork();
+                        break;
+                    case "3":
+                        PayEmployee();
+                        break;
+                    case "9": break;
+                    default:
+                        Console.WriteLine("Invalid selection. Please try again.");
+                        break;
+                }
+            }
+            while (userSelection != "9");
+
+            Console.WriteLine("Thanks for using the application");
+            Console.Read();
+
+            static void RegisterEmployee() //static modifier is not permitted on a local function?
+            {
+                Console.WriteLine("Creating an employee");
+
+                Console.Write("Enter the first name: ");
+                string firstName = Console.ReadLine();
+
+                Console.Write("Enter the last name: ");
+                string lastName = Console.ReadLine();
+
+                Console.Write("Enter the hourly rate: ");
+                string hourlyRate = Console.ReadLine();
+
+                double rate = double.Parse(hourlyRate); //assuming that input is in a correct format
+
+                Employee employee = new Employee(firstName, lastName, rate);
+                employees.Add(employee);
+
+                Console.WriteLine("Employee created!\n\n");
+
+            }
+
+            static void RegisterWork()
+            {
+                Console.WriteLine("Select an employee");
+
+                for (int i = 1; i <= employees.Count; i++)
+                {
+                    Console.WriteLine($"{i}. {employees[i - 1].FirstName} {employees[i - 1].LastName}");
+                }
+
+                int selection = int.Parse(Console.ReadLine()); //assuming that that a valid ID is selected
+
+                Console.Write("Enter the number of hours worked: ");
+                int hours = int.Parse(Console.ReadLine()); //assuming that that a valid amount is entered
+
+                Employee selectedEmployee = employees[selection - 1];
+                int numberOfHoursWorked = selectedEmployee.PerformWork(hours);
+                Console.WriteLine($"{selectedEmployee.FirstName} {selectedEmployee.LastName} has now worked {numberOfHoursWorked} hours in total.\n\n");
+            }
+
+            static void PayEmployee()
+            {
+                Console.WriteLine("Select an employee");
+
+                for (int i = 1; i <= employees.Count; i++)
+                {
+                    Console.WriteLine($"{i}. {employees[i - 1].FirstName} {employees[i - 1].LastName}");
+                }
+
+                int selection = int.Parse(Console.ReadLine()); //assuming that that a valid ID is selected
+
+                Employee selectedEmployee = employees[selection - 1];
+                int hoursWorked;
+                double receivedWage = selectedEmployee.ReceiveWage(out hoursWorked);
+
+                Console.WriteLine($"{selectedEmployee.FirstName} {selectedEmployee.LastName} has received a wage of {receivedWage}. The hours worked is reset to {hoursWorked}.\n\n");
+            }
+
+            //part III
+
+            //A
+
+            //Employee bethany = new StoreManager("Bethany", "Smith", "bethany@snowball.be", new DateTime(1979, 1, 16), 25); //correct argements order?
+            //Manager mary = new Manager("Mary", "Jones", "mary@snowball.be", new DateTime(1965, 1, 16), 30);
+            //JuniorResearcher bobJunior = new JuniorResearcher("Bob", "Spencer", "bob@snowball.be", new DateTime(1988, 1, 23), 17);
+            //Employee kevin = new StoreManager("Kevin", "Marks", "kevin@snowball.be", new DateTime(1953, 12, 12), 10);
+            //Employee kate = new StoreManager("Kate", "Greggs", "kate@snowball.be", new DateTime(1993, 8, 8), 10);
+
+            //bethany.PerformWork();
+            //bethany.PerformWork();
+            //bethany.PerformWork();
+            //bethany.ReceiveWage();
+            //bethany.DisplayEmployeeDetails();
+
+            //mary.PerformWork();
+            //mary.PerformWork();
+            //mary.PerformWork();
+            //mary.AttendManagementMeeting();
+            //mary.ReceiveWage();
+            //mary.DisplayEmployeeDetails();
+
+            //bobJunior.ResearchNewPieTastes(5);
+            //bobJunior.ReceiveWage();
+            //bobJunior.DisplayEmployeeDetails();
+
+            //B
+
+            //Employee bethany = new StoreManager("Bethany", "Smith", "bethany@snowball.be", new DateTime(1979, 1, 16), 25); //correct argements order?
+            //Manager mary = new Manager("Mary", "Jones", "mary@snowball.be", new DateTime(1965, 1, 16), 30);
+            //JuniorResearcher bobJunior = new JuniorResearcher("Bob", "Spencer", "bob@snowball.be", new DateTime(1988, 1, 23), 17);
+            //Employee kevin = new StoreManager("Kevin", "Marks", "kevin@snowball.be", new DateTime(1953, 12, 12), 10);
+            //Employee kate = new StoreManager("Kate", "Greggs", "kate@snowball.be", new DateTime(1993, 8, 8), 10);
+
+            //Employee[] employees = new Employee[5];
+            //employees[0] = bethany;
+            //employees[1] = mary;
+            //employees[2] = bobJunior;
+            //employees[3] = kevin;
+            //employees[4] = kate;
+
+            //foreach (var employee in employees)
+            //{
+            //    employee.PerformWork();
+            //    employee.ReceiveWage();
+            //    employee.DisplayEmployeeDetails();
+            //    employee.GiveBonus();
+            //    //employee.AttendManagementMeeting();
+            //}
+
+            //C
 
             //Manager mary = new Manager(748, "Mary", "Jones", "mary@snowball.be", new DateTime(1965, 1, 16), 30); //correct argements order?
 
@@ -80,12 +234,6 @@ namespace console_type_system
             //StoreManager kate = new StoreManager(100, "Kate", "Greggs", "kate@snowball.be", new DateTime(1993, 8, 8), 10);
 
             //JuniorResearcher bobJunior = new JuniorResearcher(11231, "Bob", "Spencer", "bob@snowball.be", new DateTime(1988, 1, 23), 17);
-
-            //R
-
-            //mary.AttendManagementMeeting();
-
-            //T
 
             //List<IEmployee> employees = new List<IEmployee>();
             //employees.Add(mary);
@@ -101,13 +249,96 @@ namespace console_type_system
             //    employee.DisplayEmployeeDetails(); 
             //}
 
-            //end
-
-            //Console.ReadLine();
-            Console.ReadKey();
+            Console.ReadKey(); //Console.ReadLine();
         }
     }
 }
+
+
+//for part II
+namespace console_type_system
+{
+    public class Employee
+    {
+        private string firstName;
+        private string lastName;
+
+        private int numberOfHoursWorked;
+        private double wage;
+        private double hourlyRate;
+
+        public string FirstName
+        {
+            get { return firstName; }
+            set
+            {
+                firstName = value;
+            }
+        }
+
+        public string LastName
+        {
+            get { return lastName; }
+            set
+            {
+                lastName = value;
+            }
+        }
+
+        public double HourlyRate
+        {
+            get { return hourlyRate; }
+            set
+            {
+                hourlyRate = value;
+            }
+        }
+
+        public int NumberOfHoursWorked
+        {
+            get { return numberOfHoursWorked; }
+            set
+            {
+                numberOfHoursWorked = value;
+            }
+        }
+
+        public double Wage
+        {
+            get { return wage; }
+            set
+            {
+                wage = value;
+            }
+        }
+
+        public Employee(string first, string last, double rate)
+        {
+            FirstName = first;
+            LastName = last;
+            HourlyRate = rate;
+        }
+
+        public int PerformWork(int hours)
+        {
+            NumberOfHoursWorked += hours;
+            return NumberOfHoursWorked;
+        }
+
+        public double ReceiveWage(out int hoursWorked)
+        {
+            Wage = NumberOfHoursWorked * HourlyRate;
+
+            Console.WriteLine($"The wage for {NumberOfHoursWorked} hours of work is {Wage}.");
+
+            NumberOfHoursWorked = 0;
+            hoursWorked = NumberOfHoursWorked;
+
+            return Wage;
+        }
+    }
+}
+
 
 
 //new namespace
@@ -240,6 +471,7 @@ namespace console_type_system.departments
             Console.WriteLine($"{FirstName} {LastName} has stopped working!");
         }
 
+        //public abstract double ReceiveWage();
         public double ReceiveWage()
         {
             double wageBeforeTax = NumberOfHoursWorked * HourlyRate.Value;

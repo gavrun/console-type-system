@@ -228,27 +228,27 @@ namespace console_type_system
 
             //C
 
-            //Manager mary = new Manager(748, "Mary", "Jones", "mary@snowball.be", new DateTime(1965, 1, 16), 30); //correct argements order?
+            Manager mary = new Manager(748, "Mary", "Jones", new DateTime(1965, 1, 16), "mary@snowball.be",  30); 
 
-            //StoreManager bethany = new StoreManager(55156, "Bethany", "Smith", "bethany@snowball.be", new DateTime(1979, 1, 16), 25);
-            //StoreManager kevin = new StoreManager(81131, "Kevin", "Marks", "kevin@snowball.be", new DateTime(1953, 12, 12), 10);
-            //StoreManager kate = new StoreManager(100, "Kate", "Greggs", "kate@snowball.be", new DateTime(1993, 8, 8), 10);
+            StoreManager bethany = new StoreManager(55156, "Bethany", "Smith", new DateTime(1979, 1, 16), "bethany@snowball.be",  25);
+            StoreManager kevin = new StoreManager(81131, "Kevin", "Marks", new DateTime(1953, 12, 12), "kevin@snowball.be",  10);
+            StoreManager kate = new StoreManager(100, "Kate", "Greggs", new DateTime(1993, 8, 8), "kate@snowball.be",  10);
 
-            //JuniorResearcher bobJunior = new JuniorResearcher(11231, "Bob", "Spencer", "bob@snowball.be", new DateTime(1988, 1, 23), 17);
+            //JuniorResearcher bobJunior = new JuniorResearcher(11231, "Bob", "Spencer", new DateTime(1988, 1, 23), "bob@snowball.be",  17);
 
-            //List<IEmployee> employees = new List<IEmployee>();
-            //employees.Add(mary);
-            //employees.Add(bethany);
-            //employees.Add(kevin);
-            //employees.Add(kate);
-            ////employees.Add(bobJunior);
+            List<IEmployee> employees = new List<IEmployee>();
+            employees.Add(mary);
+            employees.Add(bethany);
+            employees.Add(kevin);
+            employees.Add(kate);
+            //employees.Add(bobJunior);
 
-            //employees.Sort();
+            employees.Sort();
 
-            //foreach (var employee in employees)
-            //{
-            //    employee.DisplayEmployeeDetails(); 
-            //}
+            foreach (var employee in employees)
+            {
+                employee.DisplayEmployeeDetails();
+            }
 
             Console.ReadKey(); //Console.ReadLine();
         }
